@@ -8,7 +8,7 @@
         body {
             background-color: #221f1f;
             font-family: 'Arial', sans-serif;
-            text-align: center; /* Align text to the left */
+            text-align: center;
             margin: 100px;
         }
 
@@ -16,31 +16,11 @@
             color: rgb(231, 231, 231); 
         }
 
-        .menu {
-            display: none; /* Initially hide the menu */
-            position: fixed;
-            left: 0;
-            top: 0;
-            background-color: #221f1f; 
-            color: #fff; 
-            padding: 20px;
-            width: 200px;
-            text-align: left;
-        }
-
-        .menu a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
         button {
             padding: 10px 20px;
             font-size: 16px;
             background-color: cornflowerblue;
-            color: rgb(255, 255, 255); /* color */
+            color: rgb(255, 255, 255);
             border: 5cm;
             cursor: pointer;
         }
@@ -51,27 +31,14 @@
         <h1>Welcome</h1>
         <button onclick="showMenu()">Click To Begin</button>
     </div>
-    
-    <div class="menu" id="menu">
-        <h2>Menu</h2>
-        <button onclick="Ceelo()">Ceelo</button>
-    </div>
 
     <script>
         function showMenu() {
             var welcomeContainer = document.getElementById('welcomeContainer');
-            var menu = document.getElementById('menu');
 
             welcomeContainer.style.display = 'none';
-            // Move the menu to the left
-            menu.style.textAlign = 'left';
-            // Toggle the menu visibility
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
 
-        function blackJack() {
-            alert('Beginning a Game of Ceelo');
-            menu.style.display = 'none';
+            // You can add additional logic or actions here if needed
         }
     </script>
 </body>
