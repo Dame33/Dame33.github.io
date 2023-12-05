@@ -2,7 +2,9 @@ import { getRandomNumber } from './random.js';
 
 var balance = 100; // Starting balance
 
-function startGame() {
+export function startGame() {
+    alert('Button clicked!'); // For testing
+
     var welcomeContainer = document.getElementById('welcomeContainer');
     welcomeContainer.innerHTML = '';
 

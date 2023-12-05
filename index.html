@@ -22,7 +22,7 @@
             font-size: 16px;
             background-color: cornflowerblue;
             color: rgb(255, 255, 255);
-            border: 2px solid #fff;
+            border: 5px solid #fff;
             cursor: pointer;
         }
 
@@ -35,9 +35,14 @@
 <body>
     <div id="welcomeContainer">
         <h1>Welcome</h1>
-        <button onclick="startGame()">Click To Begin</button>
+        <button id="startButton">Click To Begin</button>
     </div>
 
-    <script type="module" src="game.js"></script>
+    <script type="module">
+        import { startGame } from './game.js';
+
+        // Attach the startGame function to the button click event
+        document.getElementById('startButton').onclick = startGame;
+    </script>
 </body>
 </html>
