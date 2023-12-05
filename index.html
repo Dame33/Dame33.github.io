@@ -54,27 +54,24 @@
     
     <div class="menu" id="menu">
         <h2>Menu</h2>
-        <button onclick="blackJack()">BlackJack</button>
+        <button onclick="Ceelo()">Ceelo</button>
     </div>
 
     <script>
         function showMenu() {
             var welcomeContainer = document.getElementById('welcomeContainer');
             var menu = document.getElementById('menu');
-            
-            // Hide the welcomeContainer
+
             welcomeContainer.style.display = 'none';
-            
             // Move the menu to the left
             menu.style.textAlign = 'left';
-            
             // Toggle the menu visibility
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
 
         function blackJack() {
-            // Handle the action for the Black Jack button (you can customize this)
-            alert('Beginning a Game of BlackJack');
+            alert('Beginning a Game of Ceelo');
+            menu.style.display = 'none';
         }
     </script>
 </body>
