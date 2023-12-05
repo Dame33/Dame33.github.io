@@ -62,8 +62,11 @@
             var welcomeContainer = document.getElementById('welcomeContainer');
             var menu = document.getElementById('menu');
             
-            // Move the welcomeContainer to the left
-            welcomeContainer.style.textAlign = 'left';
+            // Hide the welcomeContainer
+            welcomeContainer.style.display = 'none';
+            
+            // Move the menu to the left
+            menu.style.textAlign = 'left';
             
             // Toggle the menu visibility
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
