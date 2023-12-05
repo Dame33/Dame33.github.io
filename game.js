@@ -2,7 +2,7 @@ import { getRandomNumber } from './random.js';
 
 var balance = 100; // Starting balance
 
-export function startGame() {
+function startGame() {
     alert('Button clicked!'); // For testing
 
     var welcomeContainer = document.getElementById('welcomeContainer');
@@ -48,3 +48,4 @@ export function startGame() {
     // Update the balance display
     balanceHeader.innerText = 'Balance: $' + balance;
 }
+export { startGame };
