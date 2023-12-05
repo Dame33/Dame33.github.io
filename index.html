@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,20 +8,21 @@
         body {
             background-color: #221f1f;
             font-family: 'Arial', sans-serif;
-            text-align: center;
+            text-align: left; /* Align text to the left */
             margin: 100px;
         }
 
         h1 {
             color: rgb(231, 231, 231); 
         }
+
         .menu {
             display: none; /* Initially hide the menu */
             position: fixed;
             left: 0;
             top: 0;
-            background-color: #333; /* Dark background color for the menu */
-            color: #fff; /* White text color */
+            background-color: #333; 
+            color: #fff; 
             padding: 20px;
             width: 200px;
             text-align: left;
@@ -33,28 +35,43 @@
             margin-bottom: 10px;
             font-size: 16px;
         }
+
         button {
             padding: 10px 20px;
-            fontsize: 16px;
+            font-size: 16px;
             background-color: cornflowerblue;
-            color:rgb(255, 255, 255); /* color */
+            color: rgb(255, 255, 255); /* color */
             border: 5cm;
             cursor: pointer;
         }
-
     </style>
 </head>
 <body>
-    <h1>Welcome, To the Casino</h1>
-    <button onclick = "showMenu()">Click To Begin</button>
-    <div class="menu" id="menu">
-        <h2>New Text</h2>
-        <a href="#">Menu Item 1</a>
+    <div id="welcomeContainer">
+        <h1>Welcome</h1>
+        <button onclick="showMenu()">Click To Begin</button>
     </div>
+    
+    <div class="menu" id="menu">
+        <h2>Menu</h2>
+        <button onclick="blackJack()">Black Jack</button>
+    </div>
+
     <script>
         function showMenu() {
-            document.getElementById('welcomeText').innerText = 'New Text';
-            document.getElementById('menu').style.display = 'block';
+            var welcomeContainer = document.getElementById('welcomeContainer');
+            var menu = document.getElementById('menu');
+            
+            // Move the welcomeContainer to the left
+            welcomeContainer.style.textAlign = 'left';
+            
+            // Toggle the menu visibility
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function blackJack() {
+            // Handle the action for the Black Jack button (you can customize this)
+            alert('Black Jack button clicked!');
         }
     </script>
 </body>
