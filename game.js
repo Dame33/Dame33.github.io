@@ -9,6 +9,7 @@ var winImages = [
     'https://media.tenor.com/nT1VS7YVtlQAAAAC/jang-wonyoung.gif',
     'https://media.tenor.com/2hZ29SaqxjkAAAAM/lebron-james-dancing.gif',
     'https://i.kym-cdn.com/photos/images/original/002/621/765/0da.gif',
+    'https://i.ytimg.com/vi/fC71LJQVoK4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEcgSyhlMA8=&rs=AOn4CLBjrNoqAaScO_oga8QjaKJlWvYkuA',
     'https://media.tenor.com/w-pkPU-ql4UAAAAC/cash-dollars.gif',
     'https://media.tenor.com/JIDQh-6oYQAAAAAd/karina-laughing-karina-aespa.gif',
     'https://i.redd.it/dg9siz5g0wv91.gif',
@@ -76,12 +77,12 @@ function startGame() {
     var dealerTotal = dealer1 + dealer2;
 
     // Display details of the current round
-    displayDetails(`Player1: ${player1}`, false, 'purple');
-    displayDetails(`Player2: ${player2}`, false, 'purple');
-    displayDetails(`PlayerTotal: ${playerTotal}`, true, 'purple'); // The true parameter indicates a line break
-    displayDetails(`Dealer1: ${dealer1}`, false, 'purple');
-    displayDetails(`Dealer2: ${dealer2}`, false, 'purple');
-    displayDetails(`DealerTotal: ${dealerTotal}`, true, 'purple'); // The true parameter indicates a line break
+    displayDetails(`Player1: ${player1}`);
+    displayDetails(`Player2: ${player2}`);
+    displayDetails(`PlayerTotal: ${playerTotal}`, true, '#a100ff'); // The true parameter indicates a line break
+    displayDetails(`Dealer1: ${dealer1}`);
+    displayDetails(`Dealer2: ${dealer2}`);
+    displayDetails(`DealerTotal: ${dealerTotal}`, true, '#a100ff'); // The true parameter indicates a line break
 
     // Determine the winner
     var resultMessage = '';
