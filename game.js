@@ -15,6 +15,9 @@ messageContainer.style.padding = '10px';
 document.body.appendChild(messageContainer);
 
 function startGame() {
+    // Clear previous messages
+    messageContainer.innerHTML = '';
+
     // Get the bet from the user
     var betString = prompt(`Your current balance: $${balance}\nEnter your bet:`);
 
@@ -27,6 +30,12 @@ function startGame() {
 
     // Subtract the initial bet from the balance
     balance -= bet;
+
+    // Check if the balance is less than the bet or less than 0
+    if (balance < bet || balance < 0) {
+        alert('$100 has been gifted.');
+        balance = 100;
+    }
 
     // Get random values for player and dealer
     var player1 = getRandomNumber();
