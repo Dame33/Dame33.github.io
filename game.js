@@ -1,3 +1,5 @@
+// game.js
+
 import { getRandomNumber } from './random.js';
 
 // Retrieve the balance from localStorage or set it to the starting balance (100)
@@ -9,7 +11,8 @@ var winImages = [
     'https://media.tenor.com/nT1VS7YVtlQAAAAC/jang-wonyoung.gif',
     'https://media.tenor.com/2hZ29SaqxjkAAAAM/lebron-james-dancing.gif',
     'https://i.kym-cdn.com/photos/images/original/002/621/765/0da.gif',
-    // Add more win images as needed
+    'https://i.ytimg.com/vi/fC71LJQVoK4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEcgSyhlMA8=&rs=AOn4CLBjrNoqAaScO_oga8QjaKJlWvYkuA',
+    'https://media.tenor.com/w-pkPU-ql4UAAAAC/cash-dollars.gif',
 ];
 
 var loseImages = [
@@ -17,7 +20,14 @@ var loseImages = [
     'https://i.pinimg.com/originals/fd/c2/69/fdc269b50052ee6ae6949ebc6b5ae52b.gif',
     'https://media.tenor.com/t9kbbYsvSK0AAAAC/og-anunoby-og.gif',
     'https://media.tenor.com/IRTc7hnKYRwAAAAC/this-is.gif',
-    // Add more lose images as needed
+    'https://media.tenor.com/aoq31yTKqdsAAAAC/yuqi-idle.gif',
+
+];
+
+var tieImages = [
+    'https://media.tenor.com/4ERy1HMz3qUAAAAM/thousand-yard-stare.gif',
+    'https://i.guim.co.uk/img/media/3aab8a0699616ac94346c05f667b40844e46322f/0_123_5616_3432/master/5616.jpg?width=445&dpr=1&s=none',
+    'https://media.tenor.com/nZIyY5pgxIEAAAAd/showmaker-punch.gif',
 ];
 
 // Create a message container at the bottom of the screen
@@ -81,7 +91,7 @@ function startGame() {
         balance += bet; // Return the bet money in case of a tie
         resultMessage = `It's a tie. Bet returned: $${bet}`;
         displayWinnerMessage('It\'s a tie!');
-        displayRandomWinnerImage(winImages); // Display a random image for a tie
+        displayRandomWinnerImage(tieImages); // Display a random image for a tie
     }
 
     // Check if the balance is less than or equal to 0
