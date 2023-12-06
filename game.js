@@ -48,6 +48,22 @@ messageContainer.style.color = '#fff';
 messageContainer.style.padding = '10px';
 document.body.appendChild(messageContainer);
 
+// Function to display a message
+function displayMessage(message, lineBreak, color) {
+    var messageElement = document.createElement('p');
+    messageElement.innerText = message;
+
+    if (lineBreak) {
+        messageElement.style.marginBottom = '20px'; // Add some space between messages
+    }
+
+    if (color) {
+        messageElement.style.color = color;
+    }
+
+    messageContainer.appendChild(messageElement);
+}
+
 function startGame() {
     // Clear previous messages
     messageContainer.innerHTML = '';
@@ -120,7 +136,7 @@ function startGame() {
     addPlayAgainButton();
 }
 
-// Function to display a message
+// Function to display details
 function displayDetails(message, lineBreak, color) {
     var messageElement = document.createElement('p');
     messageElement.innerText = message;
