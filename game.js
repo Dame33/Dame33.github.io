@@ -3,6 +3,23 @@ import { getRandomNumber } from './random.js';
 // Retrieve the balance from localStorage or set it to the starting balance (100)
 var balance = parseInt(localStorage.getItem('balance')) || 100;
 
+// Images for different outcomes
+var winImages = [
+    'https://pbs.twimg.com/media/DsSqKlBV4AAYpVK.jpg',
+    'https://media.tenor.com/nT1VS7YVtlQAAAAC/jang-wonyoung.gif',
+    'https://media.tenor.com/2hZ29SaqxjkAAAAM/lebron-james-dancing.gif',
+    'https://i.kym-cdn.com/photos/images/original/002/621/765/0da.gif',
+    // Add more win images as needed
+];
+
+var loseImages = [
+    'https://media.tenor.com/WTs_OWCkz_UAAAAM/lebron-james.gif',
+    'https://i.pinimg.com/originals/fd/c2/69/fdc269b50052ee6ae6949ebc6b5ae52b.gif',
+    'https://media.tenor.com/t9kbbYsvSK0AAAAC/og-anunoby-og.gif',
+    'https://media.tenor.com/IRTc7hnKYRwAAAAC/this-is.gif',
+    // Add more lose images as needed
+];
+
 // Create a message container at the bottom of the screen
 var messageContainer = document.createElement('div');
 messageContainer.style.position = 'fixed';
@@ -55,14 +72,16 @@ function startGame() {
         balance += 2 * bet; // Adjust the balance
         resultMessage = `Player wins: $${2 * bet}`;
         displayWinnerMessage('Player wins!');
-        displayWinnerImage('https://pbs.twimg.com/ext_tw_video_thumb/1543212053036679174/pu/img/b6n1jUriItaJOiAd.jpg:large');
+        displayRandomWinnerImage(winImages);
     } else if (playerTotal < dealerTotal) {
         resultMessage = `Player loses: $${bet}`;
         displayWinnerMessage('Dealer wins!');
-        displayWinnerImage('https://media4.giphy.com/media/JudOfDOQTmIs5Z0PU7/giphy.gif');
+        displayRandomWinnerImage(loseImages);
     } else {
-        resultMessage = `It's a tie. No money lost or won.`;
+        balance += bet; // Return the bet money in case of a tie
+        resultMessage = `It's a tie. Bet returned: $${bet}`;
         displayWinnerMessage('It\'s a tie!');
+        displayRandomWinnerImage(winImages); // Display a random image for a tie
     }
 
     // Check if the balance is less than or equal to 0
@@ -102,6 +121,12 @@ function displayWinnerMessage(winnerMessage) {
     winnerElement.style.fontSize = '24px';
     winnerElement.innerText = winnerMessage;
     messageContainer.appendChild(winnerElement);
+}
+
+// Function to display a random winner image
+function displayRandomWinnerImage(imageArray) {
+    var randomIndex = Math.floor(Math.random() * imageArray.length);
+    displayWinnerImage(imageArray[randomIndex]);
 }
 
 // Function to display the winner image
