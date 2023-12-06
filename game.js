@@ -59,15 +59,13 @@ function startGame() {
     // Display the updated balance
     displayMessage(`Balance: $${balance}`, true);
 
+    // Display the winner message
+    displayWinnerMessage(playerTotal, dealerTotal);
+
     // Check if the balance allows for another round
     if (balance > 0 && confirm('Do you want to play another round?')) {
-        if (balance < 0) {
-            // Gift an extra $100 and set balance back to 100
-            alert('You have been gifted an extra $100!');
-            balance = 100;
-            localStorage.setItem('balance', balance);
-        }
-        startGame(); // Recursive call for another round
+        // Reset player and dealer values for a new round
+        startGame();
     } else {
         displayMessage('Game over. Thank you for playing!', true);
     }
@@ -83,6 +81,20 @@ function displayMessage(message, lineBreak) {
     }
 
     document.body.appendChild(messageElement);
+}
+
+// Function to display the winner message
+function displayWinnerMessage(playerTotal, dealerTotal) {
+    var winnerMessage = '';
+    if (playerTotal > dealerTotal) {
+        winnerMessage = 'Player wins!';
+    } else if (playerTotal < dealerTotal) {
+        winnerMessage = 'Dealer wins!';
+    } else {
+        winnerMessage = 'It\'s a tie!';
+    }
+
+    displayMessage(winnerMessage, true);
 }
 
 export { startGame };
