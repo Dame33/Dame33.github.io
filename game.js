@@ -9,7 +9,6 @@ var winImages = [
     'https://media.tenor.com/nT1VS7YVtlQAAAAC/jang-wonyoung.gif',
     'https://media.tenor.com/2hZ29SaqxjkAAAAM/lebron-james-dancing.gif',
     'https://i.kym-cdn.com/photos/images/original/002/621/765/0da.gif',
-    'https://i.ytimg.com/vi/fC71LJQVoK4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEcgSyhlMA8=&rs=AOn4CLBjrNoqAaScO_oga8QjaKJlWvYkuA',
     'https://media.tenor.com/w-pkPU-ql4UAAAAC/cash-dollars.gif',
     'https://media.tenor.com/JIDQh-6oYQAAAAAd/karina-laughing-karina-aespa.gif',
     'https://i.redd.it/dg9siz5g0wv91.gif',
