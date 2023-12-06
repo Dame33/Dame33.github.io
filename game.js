@@ -3,24 +3,9 @@ import { getRandomNumber } from './random.js';
 var balance = 100; // Starting balance
 
 function startGame() {
-    alert('Button clicked!'); // For testing
-
+    // Clear previous messages
     var welcomeContainer = document.getElementById('welcomeContainer');
     welcomeContainer.innerHTML = '';
-
-    var balanceHeader = document.createElement('h2');
-    balanceHeader.id = 'balanceHeader';
-    balanceHeader.innerText = 'Balance: $' + balance;
-    document.body.appendChild(balanceHeader);
-
-    // Ask the user for a bet
-    var bet = parseInt(prompt('How much would you like to bet?'));
-
-    // Validate the bet
-    if (isNaN(bet) || bet <= 0 || bet > balance) {
-        alert('Invalid bet amount. Please retry.');
-        return;
-    }
 
     // Get random values for player and dealer
     var player1 = getRandomNumber();
@@ -32,20 +17,45 @@ function startGame() {
     var playerTotal = player1 + player2;
     var dealerTotal = dealer1 + dealer2;
 
+    // Display player information
+    displayMessage(`Player First Roll: ${player1}`);
+    displayMessage(`Player Second Roll: ${player2}`);
+    displayMessage(`Player Total: ${playerTotal}`, true); // The true parameter indicates a line break
+
+    // Display dealer information
+    displayMessage(`Dealer First Roll: ${dealer1}`);
+    displayMessage(`Dealer Second ROll: ${dealer2}`);
+    displayMessage(`Dealer Total: ${dealerTotal}`, true); // The true parameter indicates a line break
+
     // Determine the winner
+    var resultMessage = '';
     if (playerTotal > dealerTotal) {
-        balance += 2 * bet;
+        balance += 2; // Adjust the balance
+        resultMessage = (`Player wins : ${bet}`);
     } else if (playerTotal < dealerTotal) {
-        balance -= bet;
+        balance -= 1; // Adjust the balance
+        resultMessage = (`Player loses : ${bet}`);
+    } else {
+        resultMessage = `It's a tie. No money lost or won.`;
     }
 
-    // Check if balance is less than 0
-    if (balance < 0) {
-        alert('You have been gifted $100!');
-        balance = 100; // Reset balance to $100
-    }
+    // Display the result message
+    displayMessage(resultMessage, true);
 
-    // Update the balance display
-    balanceHeader.innerText = 'Balance: $' + balance;
+    // Display the updated balance
+    displayMessage(`Balance: $${balance}`, true);
 }
+
+// Function to display a message
+function displayMessage(message, lineBreak) {
+    var messageElement = document.createElement('p');
+    messageElement.innerText = message;
+
+    if (lineBreak) {
+        messageElement.style.marginBottom = '20px'; // Add some space between messages
+    }
+
+    document.body.appendChild(messageElement);
+}
+
 export { startGame };
