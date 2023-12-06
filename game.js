@@ -13,6 +13,10 @@ var winImages = [
     'https://i.kym-cdn.com/photos/images/original/002/621/765/0da.gif',
     'https://i.ytimg.com/vi/fC71LJQVoK4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEcgSyhlMA8=&rs=AOn4CLBjrNoqAaScO_oga8QjaKJlWvYkuA',
     'https://media.tenor.com/w-pkPU-ql4UAAAAC/cash-dollars.gif',
+    'https://media.tenor.com/JIDQh-6oYQAAAAAd/karina-laughing-karina-aespa.gif',
+    'https://i.redd.it/dg9siz5g0wv91.gif',
+    'https://media.tenor.com/MllSK8DORaUAAAAd/yunjin-huh-yunjin.gif',
+    'https://media.tenor.com/9jhVWNwUHMIAAAAC/iu-laughing-seokrmi.gif',
 ];
 
 var loseImages = [
@@ -21,6 +25,10 @@ var loseImages = [
     'https://media.tenor.com/t9kbbYsvSK0AAAAC/og-anunoby-og.gif',
     'https://media.tenor.com/IRTc7hnKYRwAAAAC/this-is.gif',
     'https://media.tenor.com/aoq31yTKqdsAAAAC/yuqi-idle.gif',
+    'https://i.kym-cdn.com/entries/icons/original/000/037/984/thiccomniman.png',
+    'https://media.tenor.com/2FxHdvZuzGMAAAAd/laughing-lol.gif',
+    'https://i.redd.it/zj7m5n0a2xx91.jpg',
+    'https://media.tenor.com/JSMcHbYqHBoAAAAC/iu-sad.gif',
 
 ];
 
@@ -28,6 +36,9 @@ var tieImages = [
     'https://media.tenor.com/4ERy1HMz3qUAAAAM/thousand-yard-stare.gif',
     'https://i.guim.co.uk/img/media/3aab8a0699616ac94346c05f667b40844e46322f/0_123_5616_3432/master/5616.jpg?width=445&dpr=1&s=none',
     'https://media.tenor.com/nZIyY5pgxIEAAAAd/showmaker-punch.gif',
+    'https://www.hungertv.com/app/uploads/2023/10/bird.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeO74Wf61GutnEyDOdroVrnIKgkmifF6bDhg&usqp=CAU',
+    'https://i.pinimg.com/originals/de/a7/90/dea790179d08e88d00985167e0f05cd6.gif',
 ];
 
 // Create a message container at the bottom of the screen
