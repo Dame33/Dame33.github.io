@@ -1,6 +1,7 @@
 import { getRandomNumber } from './random.js';
 
-var balance = 100; // Starting balance
+// Retrieve the balance from localStorage or set it to the starting balance (100)
+var balance = parseInt(localStorage.getItem('balance')) || 100;
 
 function startGame() {
     // Clear previous messages
@@ -31,13 +32,16 @@ function startGame() {
     var resultMessage = '';
     if (playerTotal > dealerTotal) {
         balance += 2; // Adjust the balance
-        resultMessage = (`Player wins : ${bet}`);
+        resultMessage = `Player wins : ${bet}`;
     } else if (playerTotal < dealerTotal) {
         balance -= 1; // Adjust the balance
-        resultMessage = (`Player loses : ${bet}`);
+        resultMessage = `Player loses : ${bet}`;
     } else {
         resultMessage = `It's a tie. No money lost or won.`;
     }
+
+    // Save the updated balance to localStorage
+    localStorage.setItem('balance', balance);
 
     // Display the result message
     displayMessage(resultMessage, true);
