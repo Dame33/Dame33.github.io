@@ -1,5 +1,3 @@
-// game.js
-
 import { getRandomNumber } from './random.js';
 
 // Retrieve the balance from localStorage or set it to the starting balance (100)
@@ -11,7 +9,6 @@ var winImages = [
     'https://media.tenor.com/nT1VS7YVtlQAAAAC/jang-wonyoung.gif',
     'https://media.tenor.com/2hZ29SaqxjkAAAAM/lebron-james-dancing.gif',
     'https://i.kym-cdn.com/photos/images/original/002/621/765/0da.gif',
-    'https://i.ytimg.com/vi/fC71LJQVoK4/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEcgSyhlMA8=&rs=AOn4CLBjrNoqAaScO_oga8QjaKJlWvYkuA',
     'https://media.tenor.com/w-pkPU-ql4UAAAAC/cash-dollars.gif',
     'https://media.tenor.com/JIDQh-6oYQAAAAAd/karina-laughing-karina-aespa.gif',
     'https://i.redd.it/dg9siz5g0wv91.gif',
@@ -29,7 +26,6 @@ var loseImages = [
     'https://media.tenor.com/2FxHdvZuzGMAAAAd/laughing-lol.gif',
     'https://i.redd.it/zj7m5n0a2xx91.jpg',
     'https://media.tenor.com/JSMcHbYqHBoAAAAC/iu-sad.gif',
-
 ];
 
 var tieImages = [
@@ -80,12 +76,12 @@ function startGame() {
     var dealerTotal = dealer1 + dealer2;
 
     // Display details of the current round
-    displayMessage(`Player1: ${player1}`);
-    displayMessage(`Player2: ${player2}`);
-    displayMessage(`PlayerTotal: ${playerTotal}`, true); // The true parameter indicates a line break
-    displayMessage(`Dealer1: ${dealer1}`);
-    displayMessage(`Dealer2: ${dealer2}`);
-    displayMessage(`DealerTotal: ${dealerTotal}`, true); // The true parameter indicates a line break
+    displayDetails(`Player1: ${player1}`, false, 'purple');
+    displayDetails(`Player2: ${player2}`, false, 'purple');
+    displayDetails(`PlayerTotal: ${playerTotal}`, true, 'purple'); // The true parameter indicates a line break
+    displayDetails(`Dealer1: ${dealer1}`, false, 'purple');
+    displayDetails(`Dealer2: ${dealer2}`, false, 'purple');
+    displayDetails(`DealerTotal: ${dealerTotal}`, true, 'purple'); // The true parameter indicates a line break
 
     // Determine the winner
     var resultMessage = '';
@@ -125,7 +121,7 @@ function startGame() {
 }
 
 // Function to display a message
-function displayMessage(message, lineBreak) {
+function displayDetails(message, lineBreak, color) {
     var messageElement = document.createElement('p');
     messageElement.innerText = message;
 
@@ -133,13 +129,27 @@ function displayMessage(message, lineBreak) {
         messageElement.style.marginBottom = '20px'; // Add some space between messages
     }
 
+    if (color) {
+        messageElement.style.color = color;
+    }
+
     messageContainer.appendChild(messageElement);
 }
 
-// Function to display the winner message
+// Function to display the winner message with color
 function displayWinnerMessage(winnerMessage) {
     var winnerElement = document.createElement('p');
     winnerElement.style.fontSize = '24px';
+
+    // Set color based on the winner
+    if (winnerMessage.includes('Player wins')) {
+        winnerElement.style.color = 'green';
+    } else if (winnerMessage.includes('Dealer wins')) {
+        winnerElement.style.color = 'red';
+    } else {
+        winnerElement.style.color = 'white'; // Default color for other messages
+    }
+
     winnerElement.innerText = winnerMessage;
     messageContainer.appendChild(winnerElement);
 }
@@ -150,7 +160,7 @@ function displayRandomWinnerImage(imageArray) {
     displayWinnerImage(imageArray[randomIndex]);
 }
 
-// Function to display the winner image
+// Function to display the winner image with color
 function displayWinnerImage(imageURL) {
     var imageElement = document.createElement('img');
     imageElement.src = imageURL;
