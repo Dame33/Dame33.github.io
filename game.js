@@ -25,6 +25,9 @@ function startGame() {
         return;
     }
 
+    // Subtract the initial bet from the balance
+    balance -= bet;
+
     // Get random values for player and dealer
     var player1 = getRandomNumber();
     var player2 = getRandomNumber();
@@ -35,15 +38,13 @@ function startGame() {
     var playerTotal = player1 + player2;
     var dealerTotal = dealer1 + dealer2;
 
-    // Display player information
-    displayMessage(`Player First Roll: ${player1}`);
-    displayMessage(`Player Second Roll: ${player2}`);
-    displayMessage(`Player Total: ${playerTotal}`, true); // The true parameter indicates a line break
-
-    // Display dealer information
-    displayMessage(`Dealer First Roll: ${dealer1}`);
-    displayMessage(`Dealer Second Roll: ${dealer2}`);
-    displayMessage(`Dealer Total: ${dealerTotal}`, true); // The true parameter indicates a line break
+    // Display details of the current round
+    displayMessage(`Player1: ${player1}`);
+    displayMessage(`Player2: ${player2}`);
+    displayMessage(`PlayerTotal: ${playerTotal}`, true); // The true parameter indicates a line break
+    displayMessage(`Dealer1: ${dealer1}`);
+    displayMessage(`Dealer2: ${dealer2}`);
+    displayMessage(`DealerTotal: ${dealerTotal}`, true); // The true parameter indicates a line break
 
     // Determine the winner
     var resultMessage = '';
@@ -52,7 +53,6 @@ function startGame() {
         resultMessage = `Player wins: $${2 * bet}`;
         displayWinnerMessage('Player wins!');
     } else if (playerTotal < dealerTotal) {
-        balance -= bet; // Adjust the balance
         resultMessage = `Player loses: $${bet}`;
         displayWinnerMessage('Dealer wins!');
     } else {
@@ -69,13 +69,8 @@ function startGame() {
     // Display the updated balance
     displayMessage(`Balance: $${balance}`, true);
 
-    // Check if the balance allows for another round
-    if (balance > 0 && confirm('Do you want to play another round?')) {
-        // Reset player and dealer values for a new round
-        startGame();
-    } else {
-        displayMessage('Game over. Thank you for playing!', true);
-    }
+    // Add "Press to Play Again" button
+    addPlayAgainButton();
 }
 
 // Function to display a message
@@ -96,6 +91,25 @@ function displayWinnerMessage(winnerMessage) {
     winnerElement.style.fontSize = '24px';
     winnerElement.innerText = winnerMessage;
     messageContainer.appendChild(winnerElement);
+}
+
+// Function to add "Press to Play Again" button
+function addPlayAgainButton() {
+    var playAgainButton = document.createElement('button');
+    playAgainButton.innerText = 'Press to Play Again';
+    playAgainButton.style.marginTop = '20px';
+    playAgainButton.style.padding = '10px 20px';
+    playAgainButton.style.fontSize = '16px';
+    playAgainButton.style.backgroundColor = 'cornflowerblue';
+    playAgainButton.style.color = '#fff';
+    playAgainButton.style.border = 'none';
+    playAgainButton.style.cursor = 'pointer';
+
+    playAgainButton.addEventListener('click', function () {
+        startGame(); // Start a new game when the button is clicked
+    });
+
+    messageContainer.appendChild(playAgainButton);
 }
 
 export { startGame };
