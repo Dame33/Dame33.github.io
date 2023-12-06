@@ -9,9 +9,10 @@ function startGame() {
     welcomeContainer.innerHTML = '';
 
     // Get the bet from the user
-    var bet = parseInt(prompt(`Your current balance: $${balance}\nEnter your bet:`));
+    var betString = prompt(`Your current balance: $${balance}\nEnter your bet:`);
 
     // Validate the bet
+    var bet = parseInt(betString);
     if (isNaN(bet) || bet <= 0 || bet > balance) {
         alert('Invalid bet. Please enter a valid bet.');
         startGame(); // Restart the game if the bet is invalid
