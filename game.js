@@ -8,6 +8,16 @@ function startGame() {
     var welcomeContainer = document.getElementById('welcomeContainer');
     welcomeContainer.innerHTML = '';
 
+    // Get the bet from the user
+    var bet = parseInt(prompt(`Your current balance: $${balance}\nEnter your bet:`));
+
+    // Validate the bet
+    if (isNaN(bet) || bet <= 0 || bet > balance) {
+        alert('Invalid bet. Please enter a valid bet.');
+        startGame(); // Restart the game if the bet is invalid
+        return;
+    }
+
     // Get random values for player and dealer
     var player1 = getRandomNumber();
     var player2 = getRandomNumber();
@@ -25,17 +35,17 @@ function startGame() {
 
     // Display dealer information
     displayMessage(`Dealer First Roll: ${dealer1}`);
-    displayMessage(`Dealer Second ROll: ${dealer2}`);
+    displayMessage(`Dealer Second Roll: ${dealer2}`);
     displayMessage(`Dealer Total: ${dealerTotal}`, true); // The true parameter indicates a line break
 
     // Determine the winner
     var resultMessage = '';
     if (playerTotal > dealerTotal) {
-        balance += 2; // Adjust the balance
-        resultMessage = `Player wins : ${bet}`;
+        balance += 2 * bet; // Adjust the balance
+        resultMessage = `Player wins: $${2 * bet}`;
     } else if (playerTotal < dealerTotal) {
-        balance -= 1; // Adjust the balance
-        resultMessage = `Player loses : ${bet}`;
+        balance -= bet; // Adjust the balance
+        resultMessage = `Player loses: $${bet}`;
     } else {
         resultMessage = `It's a tie. No money lost or won.`;
     }
@@ -48,6 +58,19 @@ function startGame() {
 
     // Display the updated balance
     displayMessage(`Balance: $${balance}`, true);
+
+    // Check if the balance allows for another round
+    if (balance > 0 && confirm('Do you want to play another round?')) {
+        if (balance < 0) {
+            // Gift an extra $100 and set balance back to 100
+            alert('You have been gifted an extra $100!');
+            balance = 100;
+            localStorage.setItem('balance', balance);
+        }
+        startGame(); // Recursive call for another round
+    } else {
+        displayMessage('Game over. Thank you for playing!', true);
+    }
 }
 
 // Function to display a message
