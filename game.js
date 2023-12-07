@@ -92,11 +92,11 @@ function startGame() {
     var dealerTotal = dealer1 + dealer2;
 
     // Display details of the current round
-    displayDetails(`Player1: ${player1}`);
-    displayDetails(`Player2: ${player2}`);
+    displayDetails(`First Roll: ${player1}`);
+    displayDetails(`Second Roll: ${player2}`);
     displayDetails(`PlayerTotal: ${playerTotal}`, true, '#a100ff'); // The true parameter indicates a line break
-    displayDetails(`Dealer1: ${dealer1}`);
-    displayDetails(`Dealer2: ${dealer2}`);
+    displayDetails(`Dealer First Roll: ${dealer1}`);
+    displayDetails(`Dealer Second Roll: ${dealer2}`);
     displayDetails(`DealerTotal: ${dealerTotal}`, true, '#a100ff'); // The true parameter indicates a line break
 
     // Determine the winner
